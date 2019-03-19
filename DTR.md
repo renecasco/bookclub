@@ -55,4 +55,7 @@ Database design.
 Complete setup of app.
 Tackle one or two easier stories to start with.
 
-Additional Notes:
+Day 3 Agenda:
+Migrate database
+Which user stories to complete?
+Write tests
