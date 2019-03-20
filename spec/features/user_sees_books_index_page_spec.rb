@@ -10,21 +10,21 @@ RSpec.describe 'When a user visits a book index page' do
     book_2 = Book.create(title: "The Hobbit", pages: 478, publication_year: 1932, cover_art: "https://images-na.ssl-images-amazon.com/images/I/51wScUt0gZL._SX329_BO1,204,203,200_.jpg", authors: [author_2])
     book_3 = Book.create(title: "Shop Girl", pages: 150, publication_year: 2010, cover_art: "https://images-na.ssl-images-amazon.com/images/I/41PG42Z25GL._SX323_BO1,204,203,200_.jpg", authors: [author_3, author_1])
 
-    visit 'books_path'
+    visit books_path
 
-    expect(page).to have_content(book_1.title)
-    expect(page).to have_content(book_1.pages)
-    expect(page).to have_content(book_1.publication_year)
-    expect(page).to have_content(book_1.authors)
+    within "#book-#{book_1.id}" do
+      expect(page).to have_content(book_1.title)
+      expect(page).to have_content(book_1.pages)
+      expect(page).to have_content(book_1.publication_year)
+      expect(page).to have_content(book_1.authors[0].name)
+    end
 
-    expect(page).to have_content(book_2.title)
-    expect(page).to have_content(book_2.pages)
-    expect(page).to have_content(book_2.publication_year)
-    expect(page).to have_content(book_2.authors)
-
-    expect(page).to have_content(book_3.title)
-    expect(page).to have_content(book_3.pages)
-    expect(page).to have_content(book_3.publication_year)
-    expect(page).to have_content(book_3.authors)
+    within "#book-#{book_3.id}" do
+      expect(page).to have_content(book_3.title)
+      expect(page).to have_content(book_3.pages)
+      expect(page).to have_content(book_3.publication_year)
+      expect(page).to have_content(book_3.authors[0].name)
+      expect(page).to have_content(book_3.authors[1].name)
+    end
   end
 end
