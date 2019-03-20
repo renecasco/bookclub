@@ -43,19 +43,18 @@ Project management tools we will use:
 Waffle
 
 Day 1 Agenda:
-Complete DTR.
-Get repo up and running.
-Waffle integrated and ready.
-Study the project/user stories.
+- Complete DTR.
+- Get repo up and running.
+- Waffle integrated and ready.
+- Study the project/user stories.
 
 Day 2 Agenda:
-Wireframe.
-Heroku deployment
-Database design.
-Complete setup of app.
-Tackle one or two easier stories to start with.
+- Wireframe.
+- Database diagram
+- Complete setup of app.
+- Write tests.
+- Code user story 6.
 
 Day 3 Agenda:
-Migrate database
-Which user stories to complete?
-Write tests
+- Collect info to seed database later.
+- Continue to tackle testing and user stories.
