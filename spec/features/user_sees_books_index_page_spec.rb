@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'When a user visits a book index page' do
+RSpec.describe 'When a user visits a book index page' do
   it 'lets them see all book titles in the database' do
     author_1 = Author.create(name: "Jane Austen")
     author_2 = Author.create(name: "J.R.R. Tolkein")
