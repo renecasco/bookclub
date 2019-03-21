@@ -49,4 +49,30 @@ RSpec.describe 'When a user visits a book show page', type: :feature do
     expect(page).to_not have_selector("#review-#{review_3.id}")
     expect(page).to_not have_selector("#review-#{review_4.id}")
   end
+
+  it 'they can add a new review' do
+    author = Author.create(name: "J.R.R. Tolkein")
+    book = Book.create(title: "The Hobbit", pages: 478, publication_year: 1932, cover_art: "https://images-na.ssl-images-amazon.com/images/I/51wScUt0gZL._SX329_BO1,204,203,200_.jpg", authors: [author])
+
+    visit book_path(book)
+
+    click_link 'Add New Review'
+
+    expect(current_path).to eq(new_book_review_path(book))
+
+    fill_in 'User', with: 'smitty_1'
+    fill_in 'Title', with: 'Furry Feet!'
+    fill_in 'Rating', with: 5
+    fill_in 'Description', with: "I can see why this is a classic!"
+
+    click_button  'Create Review'
+
+    new_review = Review.last
+
+    expect(current_path).to eq(book_path(book))
+    expect(new_review.book).to eq(book)
+    expect(new_review.user).to eq('smitty_1')
+    expect(new_review.title).to eq('Furry Feet!')
+    expect(new_review.description).to eq('I can see why this is a classic!')
+  end
 end
