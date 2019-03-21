@@ -31,7 +31,7 @@ RSpec.describe 'When a user visits a book show page', type: :feature do
     review_4 = book_2.reviews.create(user: "renny", title: "novel was too short?", rating: 2, description: "That's a lot of pages for short people")
 
     visit book_path(book_1)
-    # save_and_open_page
+
     within "#review-#{review_1.id}" do
       expect(page).to have_content(review_1.user)
       expect(page).to have_content(review_1.title)
