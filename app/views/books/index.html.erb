@@ -8,5 +8,7 @@
     <% book.authors.each do |author| %>
       <p><%= author.name %></p>
     <% end %>
+    <p>Average Rating: <%=book.avg_rating%></p>
+    <p>Number of Reviews: <%=book.reviews_count%></p>
   </section>
 <% end %>

@@ -6,4 +6,12 @@ class Book < ApplicationRecord
   validates_presence_of :title
   validates_presence_of :pages
   validates_presence_of :publication_year
+
+  def avg_rating
+    reviews.average(:rating).to_f.round(1)
+  end
+
+  def reviews_count
+    reviews.count
+  end
 end
