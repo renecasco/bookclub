@@ -4,4 +4,4 @@
 <% @book.authors.each do |author| %>
   <p><%= author.name %></p>
 <% end %>
-<img src="@book.cover_art" alt="<%= book.title %> cover art">
+<img src="<%= @book.cover_art %>" alt="<%= @book.title %> cover art">
