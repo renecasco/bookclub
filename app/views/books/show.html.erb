@@ -5,3 +5,12 @@
   <p><%= author.name %></p>
 <% end %>
 <img src="<%= @book.cover_art %>" alt="<%= @book.title %> cover art">
+
+<% @book.reviews.each do |review| %>
+<section id="review-<%= review.id%>">
+  <p>User Name: <%= review.user %></p>
+  <p>Rating: <%= review.rating %></p>
+  <p>Title: <%= review.title %></p>
+  <p>Review: <%= review.description %></p>
+<% end %>
+</section>
