@@ -56,14 +56,14 @@ RSpec.describe 'When a user visits a book show page', type: :feature do
 
     visit book_path(book)
 
-    click_link 'Add Review'
+    click_link 'Add New Review'
 
     expect(current_path).to eq(new_book_review_path(book))
 
-    fill_in 'User Name:', with: 'smitty_1'
-    fill_in 'Title: ', with: 'Furry Feet!'
-    fill_in 'Rating: ', with: 5
-    fill_in 'Description: ', with: "I can see why this is a classic!"
+    fill_in 'User', with: 'smitty_1'
+    fill_in 'Title', with: 'Furry Feet!'
+    fill_in 'Rating', with: 5
+    fill_in 'Description', with: "I can see why this is a classic!"
 
     click_button  'Create Review'
 
