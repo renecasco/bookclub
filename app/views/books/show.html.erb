@@ -1,0 +1,7 @@
+<h1><%= @book.title %></h1>
+<p><%= @book.pages %></p>
+<p><%= @book.publication_year %></p>
+<% @book.authors.each do |author| %>
+  <p><%= author.name %></p>
+<% end %>
+<img src="<%= @book.cover_art %>" alt="<%= @book.title %> cover art">

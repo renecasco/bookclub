@@ -5,7 +5,7 @@
     <p><%= book.title %></p>
     <p><%= book.pages %></p>
     <p><%= book.publication_year %></p>
-    <% @authors.each do |author| %>
+    <% book.authors.each do |author| %>
       <p><%= author.name %></p>
     <% end %>
   </section>
