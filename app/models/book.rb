@@ -14,4 +14,8 @@ class Book < ApplicationRecord
   def reviews_count
     reviews.count
   end
+
+  def self.top_rated_books
+
+  end
 end

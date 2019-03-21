@@ -77,19 +77,19 @@ RSpec.describe 'When a user visits a book index page' do
         expect(page).to have_content("#{book_6.title}: #{book_6.avg_rating}")
       end
 
-      within "#statistics-column1" do
+      within "#statistics-column2" do
         expect(page).to have_content("Lowest Rated Books")
         expect(page).to have_content("#{book_2.title}: #{book_2.avg_rating}")
         expect(page).to have_content("#{book_3.title}: #{book_3.avg_rating}")
         expect(page).to have_content("#{book_4.title}: #{book_4.avg_rating}")
       end
 
-      within "#statistics-column1" do
-        expect(page).to have_content("User(s) with Most Reviews")
+      within "#statistics-column3" do
+        expect(page).to have_content("Users with Most Reviews")
         expect(page).to have_content("renny")
         expect(page).to have_content("smitty")
         expect(page).to have_content("smitty_1")
       end
     end
-
+  end
 end
