@@ -19,7 +19,7 @@ RSpec.describe 'When a user visits a book index page' do
     visit books_path
 
     within "#book-#{book_1.id}" do
-      expect(page).to have_content(book_1.title)
+      expect(page).to have_link(book_1.title)
       expect(page).to have_content(book_1.pages)
       expect(page).to have_content(book_1.publication_year)
       expect(page).to have_content(book_1.authors[0].name)
@@ -28,7 +28,7 @@ RSpec.describe 'When a user visits a book index page' do
     end
 
     within "#book-#{book_3.id}" do
-      expect(page).to have_content(book_3.title)
+      expect(page).to have_link(book_3.title)
       expect(page).to have_content(book_3.pages)
       expect(page).to have_content(book_3.publication_year)
       expect(page).to have_content(book_3.authors[0].name)
