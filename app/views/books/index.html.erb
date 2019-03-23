@@ -2,7 +2,7 @@
 
 <% @books.each do |book| %>
   <section id="book-<%= book.id %>">
-    <p><%= book.title %></p>
+    <p><%= link_to book.title, book_path(book) %></p>
     <p><%= book.pages %></p>
     <p><%= book.publication_year %></p>
     <% book.authors.each do |author| %>
