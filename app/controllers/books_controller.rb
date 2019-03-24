@@ -10,6 +10,19 @@ class BooksController < ApplicationController
     @reviews = Review.all
   end
 
+  def new
+    @book = Book.new
+  end
+
+  def create
+    @book = Book.new(book_params)
+    @book.authors = params[:book][:authors].split(",").map do |author|
+      Author.find_or_create_by(name: author.titleize.strip)
+    end
+    @book.save
+    redirect_to book_path(@book)
+  end
+
   private
 
   def book_params

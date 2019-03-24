@@ -1,15 +1,15 @@
 <%= form_for [@book, @review] do |f| %>
-  <p> <%= f.label :user%> </p>
-  <%= f.text_field :user %>
+  <%= f.label :user%>
+  <%= f.text_field :user, required: true %>
 
   <%= f.label :rating %>
-  <%= f.number_field :rating %>
+  <%= f.number_field :rating, required: true %>
 
   <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, required: true %>
 
   <%= f.label :description %>
-  <%= f.text_field :description %>
+  <%= f.text_field :description, required: true %>
 
   <%= f.submit %>
 <% end %>
