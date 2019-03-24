@@ -1,0 +1,20 @@
+<h1>Add a New Book</h1>
+
+<%= form_for @book do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, required: true %>
+
+  <%= f.label :publication_year %>
+  <%= f.number_field :publication_year, required: true %>
+
+  <%= f.label :pages%>
+  <%= f.number_field :pages, required: true %>
+
+  <%= f.label :cover_art %>
+  <%= f.text_field :cover_art %>
+
+  <%= f.label :authors %>
+  <%= f.text_field :authors, required: true %>
+
+  <%= f.submit %>
+ <% end %>
