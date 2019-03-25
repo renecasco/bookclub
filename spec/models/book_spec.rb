@@ -56,8 +56,8 @@ RSpec.describe Book, type: :model do
       review_12 = book_8.reviews.create(user: "smitty", title: "novel was too short?", rating: 5, description: "That's a long novel for short people")
       review_13 = book_8.reviews.create(user: "renny", title: "novel was too short?", rating: 4, description: "That's a long novel for short people")
 
-      expect(Book.top_rated_books).to include([book_1, book_8, book_6])
-      expect(Book.lowest_rated_books).to include([book_2, book_3, book_4])
+      expect(Book.top_rated_books).to eq([book_1, book_8, book_6])
+      expect(Book.lowest_rated_books).to eq([book_2, book_3, book_4])
     end
   end
 
