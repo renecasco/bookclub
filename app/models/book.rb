@@ -7,6 +7,8 @@ class Book < ApplicationRecord
   validates_presence_of :pages
   validates_presence_of :publication_year
 
+  before_save {self.title = self.title.titleize}
+
   def avg_rating
     reviews.average(:rating).to_f.round(1)
   end

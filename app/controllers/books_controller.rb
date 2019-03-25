@@ -16,6 +16,7 @@ class BooksController < ApplicationController
   end
 
   def create
+
     @book = Book.new(book_params)
     @book.authors = params[:book][:authors].split(",").map do |author|
       Author.find_or_create_by(name: author.titleize.strip)
@@ -27,6 +28,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :pages, :publication_year, :cover_art)
+    b_params = params.require(:book).permit(:title, :pages, :publication_year, :cover_art, :author)
   end
+
 end
