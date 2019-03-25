@@ -11,7 +11,7 @@ RSpec.describe 'When a visitor clicks on Add New Book', type: :feature do
     fill_in 'Title', with: 'Babylon by Bus'
     fill_in 'Publication year', with: 2010
     fill_in 'Pages', with: 207
-    fill_in 'Authors', with: 'Ray Lemoin'
+    fill_in 'Authors', with: 'Ray Lemoin, Jeff Neumann'
     fill_in 'Cover art', with: 'https://m.media-amazon.com/images/I/51SXzFQbTZL._AC_UL872_FMwebp_QL65_.jpg'
 
     click_on 'Create Book'
