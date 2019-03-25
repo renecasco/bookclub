@@ -32,6 +32,9 @@
 
   <section id="statistics-column3">
     <h4>Users with Most Reviews</h4>
+    <% @reviews.users_with_most_reviews.each do |review| %>
+      <p><%= review.user %>: <%= review.count %></p>
+    <% end %>
   </section>
 
 </section>
