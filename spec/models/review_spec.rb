@@ -25,7 +25,7 @@ RSpec.describe Review, type: :model do
       book_4 = Book.create(title: "Sense and Sensibility", pages: 190, publication_year: 1811, cover_art: "https://images-na.ssl-images-amazon.com/images/I/41PG42Z25GL._SX323_BO1,204,203,200_.jpg", authors: [author_1])
       book_5 = Book.create(title: "Emma", pages: 100, publication_year: 1860, cover_art: "https://images-na.ssl-images-amazon.com/images/I/41PG42Z25GL._SX323_BO1,204,203,200_.jpg", authors: [author_1])
       book_6 = Book.create(title: "Lord of The Rings", pages: 700, publication_year: 1954, cover_art: "https://images-na.ssl-images-amazon.com/images/I/41PG42Z25GL._SX323_BO1,204,203,200_.jpg", authors: [author_2])
-      book_7 = Book.create(title: "Shop Girl", pages: 150, publication_year: 2010, cover_art: "https://images-na.ssl-images-amazon.com/images/I/41PG42Z25GL._SX323_BO1,204,203,200_.jpg", authors: [author_3, author_1])
+      book_7 = Book.create(title: "Shop Girl 1", pages: 150, publication_year: 2010, cover_art: "https://images-na.ssl-images-amazon.com/images/I/41PG42Z25GL._SX323_BO1,204,203,200_.jpg", authors: [author_3, author_1])
       book_8 = Book.create(title: "Fellowship of the Rings", pages: 658, publication_year: 1954, cover_art: "https://images-na.ssl-images-amazon.com/images/I/41PG42Z25GL._SX323_BO1,204,203,200_.jpg", authors: [author_3, author_1])
 
 

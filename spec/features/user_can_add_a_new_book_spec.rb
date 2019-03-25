@@ -8,11 +8,11 @@ RSpec.describe 'When a visitor clicks on Add New Book', type: :feature do
 
     expect(current_path).to eq(new_book_path)
 
-    fill_in 'Title', with: 'Babylon by Bus'
+    fill_in 'Title', with: 'babylon by bus'
     fill_in 'Publication year', with: 2010
     fill_in 'Pages', with: 207
-    fill_in 'Authors', with: 'Ray Lemoin'
-    fill_in 'Cover art', with: 'https://m.media-amazon.com/images/I/51SXzFQbTZL._AC_UL872_FMwebp_QL65_.jpg'
+    fill_in 'Authors', with: 'ray lemoin, jeff neumann'
+    fill_in 'Cover art', with: ''
 
     click_on 'Create Book'
 
@@ -20,9 +20,9 @@ RSpec.describe 'When a visitor clicks on Add New Book', type: :feature do
 
     expect(current_path).to eq(book_path(new_book))
 
-    expect(new_book.title).to have_content('Babylon by Bus')
-    expect(new_book.publication_year).to have_content(2010)
-    expect(new_book.pages).to have_content(207)
+    expect(page).to have_content('Babylon By Bus')
+    expect(page).to have_content(2010)
+    expect(page).to have_content(207)
     new_book.authors.each do |author|
       expect(page).to have_content("#{author.name}")
     end
