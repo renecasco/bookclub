@@ -19,7 +19,7 @@ RSpec.describe "When a user clicks on a user's name for any book review", type: 
     visit book_path(book_1)
 
     click_on 'smitty'
-
+save_and_open_page
     expect(current_path).to eq(user_path('smitty'))
     expect(page).to have_content('Mr. Darcy!')
     expect(page).to have_content('Furry Feet!')
@@ -27,7 +27,7 @@ RSpec.describe "When a user clicks on a user's name for any book review", type: 
 
     expect(page).to have_content("Did I mention, Mr. Darcy?!")
     expect(page).to have_content(5)
-    expect(page).to have_content("Pride and Prejudice")
+    expect(page).to have_content("Pride And Prejudice")
     expect(page).to have_content('2019-03-25')
     expect(page).to have_css("img[src*='#{book_1.cover_art}']")
   end
