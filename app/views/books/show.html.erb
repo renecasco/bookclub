@@ -8,7 +8,7 @@
 
 <% @book.reviews.each do |review| %>
 <section id="review-<%= review.id%>">
-  <p>User Name: <%= review.user %></p>
+  <p>User Name: <%= link_to review.user, user_path(review.user) %></p>
   <p>Rating: <%= review.rating %></p>
   <p>Title: <%= review.title %></p>
   <p>Review: <%= review.description %></p>

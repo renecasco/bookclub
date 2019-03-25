@@ -1,0 +1,8 @@
+<% @reviews.each do |review| %>
+  <p>Title: <%= review.title %></p>
+  <p>Description: <%= review.description %></p>
+  <p>Rating: <%= review.rating %></p>
+  <p>Book Title: <%= review.book.title %></p>
+  <p>Date of Review: <%= review.created_at.to_date %></p>
+  <img src="<%= review.book.cover_art %>"</img>
+<% end %>
