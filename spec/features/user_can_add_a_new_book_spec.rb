@@ -12,7 +12,7 @@ RSpec.describe 'When a visitor clicks on Add New Book', type: :feature do
     fill_in 'Publication year', with: 2010
     fill_in 'Pages', with: 207
     fill_in 'Authors', with: 'ray lemoin, jeff neumann'
-    fill_in 'Cover art', with: 'https://m.media-amazon.com/images/I/51SXzFQbTZL._AC_UL872_FMwebp_QL65_.jpg'
+    fill_in 'Cover art', with: ''
 
     click_on 'Create Book'
 

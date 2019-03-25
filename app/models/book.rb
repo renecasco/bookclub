@@ -3,11 +3,20 @@ class Book < ApplicationRecord
   has_many :authors, through: :book_authors
   has_many :reviews
 
-  validates_presence_of :title
+  validates :title, presence: true, uniqueness: true
   validates_presence_of :pages
   validates_presence_of :publication_year
 
-  before_save {self.title = self.title.titleize}
+  before_save {
+    if self.title
+      self.title = self.title.titleize
+    end
+  }
+  before_save {
+    if self.cover_art == ""
+      self.cover_art = "https://www.mobileread.com/forums/attachment.php?attachmentid=111264&d=1378642555"
+    end
+  }
 
   def avg_rating
     reviews.average(:rating).to_f.round(1)
