@@ -14,7 +14,7 @@ class Book < ApplicationRecord
   }
   before_save {
     if self.cover_art == ""
-      self.cover_art = "https://www.mobileread.com/forums/attachment.php?attachmentid=111264&d=1378642555"
+      self.cover_art = "https://b.kisscc0.com/20180813/aq/kisscc0-hardcover-book-cover-computer-icons-reading-book-generic-standing-5b712c2ad3cf24.5317387715341435308676.png"
     end
   }
 
