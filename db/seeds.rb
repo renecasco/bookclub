@@ -11,3 +11,5 @@ review_2 = book_1.reviews.create(user: "renny", title: "boo hoo hoo", rating: 1,
 review_3 = book_3.reviews.create(user: "smitty", title: "Furry Feet!", rating: 5, description: "I can see why this is a classic!")
 review_4 = book_3.reviews.create(user: "renny_1", title: "novel was too short?", rating: 2, description: "That's a lot of pages for short people")
 review_5 = book_1.reviews.create(user: "renny_2", title: "Gold Diggers!", rating: 2, description: "Get a job! Even though I know you are not allowed to work.")
+review_4 = book_1.reviews.create(user: "smitty_1", title: "My Favourite Book!", rating: 4, description: "Read it many times and it's great every time.")
+review_5 = book_1.reviews.create(user: "renny_1", title: "Ghastly!", rating: 3, description: "Counldn't get past the first chapter.")

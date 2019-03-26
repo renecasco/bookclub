@@ -24,6 +24,21 @@ RSpec.describe Book, type: :model do
 
       expect(book_1.avg_rating).to eq(2.7)
       expect(book_1.reviews_count).to eq(3)
+
+    end
+
+    it "should show top and bottom three reviews for a selected book" do
+      author_1 = Author.create(name: "Jane Austen")
+      book_1 = Book.create(title: "Pride and Prejudice", pages: 278, publication_year: 1797, cover_art: "https://images-na.ssl-images-amazon.com/images/I/51wScUt0gZL._SX329_BO1,204,203,200_.jpg", authors: [author_1])
+
+      review_1 = book_1.reviews.create(user: "smitty", title: "Mr. Darcy!", rating: 5, description: "Did I mention, Mr. Darcy?!")
+      review_2 = book_1.reviews.create(user: "renny", title: "boo hoo hoo", rating: 3, description: "it wasn't funny!")
+      review_3 = book_1.reviews.create(user: "renny_2", title: "Gold Diggers!", rating: 2, description: "Get a job! Even though I know you are not allowed to work.")
+      review_4 = book_1.reviews.create(user: "smitty_1", title: "My Favourite Book!", rating: 4, description: "Read it many times and it's great every time.")
+      review_5 = book_1.reviews.create(user: "renny_1", title: "Ghastly!", rating: 1, description: "Counldn't get past the first chapter.")
+
+      expect(book_1.sort_reviews_by_rating(:desc)).to eq([review_1, review_4, review_2])
+      expect(book_1.sort_reviews_by_rating(:asc)).to eq([review_5, review_3, review_2])
     end
   end
 
