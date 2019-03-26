@@ -17,7 +17,6 @@ RSpec.describe 'when a user visits an author show page', type: :feature do
       expect(page).to have_xpath("//img[contains(@src,'#{File.basename(book_1.cover_art)}')]")
       expect(page).to have_content(book_1.pages)
       expect(page).to have_content(book_1.publication_year)
-      expect(page).to have_content(book_1.authors[0].name)
     end
 
     within "#book-#{book_3.id}" do
@@ -26,7 +25,7 @@ RSpec.describe 'when a user visits an author show page', type: :feature do
       expect(page).to have_content(book_3.pages)
       expect(page).to have_content(book_3.publication_year)
       expect(page).to have_content(book_3.authors[0].name)
-      expect(page).to have_content(book_3.authors[1].name)
+      expect(page).not_to have_content(book_3.authors[1].name)
     end
 
     expect(page).not_to have_css("#book-#{book_2.id}")

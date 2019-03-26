@@ -25,6 +25,4 @@ RSpec.describe "when a user visitis a book show page", type: :feature do
     expect(Book.count).to eq(2)
     expect(Review.count).to eq(2)
   end
-
-
 end
