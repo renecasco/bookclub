@@ -41,14 +41,9 @@ class Book < ApplicationRecord
     .order("#{column} #{direction}, title")
     .limit(number)
   end
-  
+
   def sort_reviews_by_rating(direction)
     reviews.order(rating: direction).limit(3)
   end
 
-  def delete_reviews(reviews)
-    reviews.each do |review|
-      review.delete
-    end
-  end
 end

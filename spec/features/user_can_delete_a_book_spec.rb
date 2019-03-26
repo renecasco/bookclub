@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "when a user visitis a book show page", type: :feature do
-  it "allows user to delete a review" do
+  it "allows user to delete a book" do
     author_1 = Author.create(name: "Jane Austen")
     author_2 = Author.create(name: "J.R.R. Tolkein")
     author_3 = Author.create(name: "Steve Martin")
