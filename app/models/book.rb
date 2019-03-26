@@ -42,5 +42,13 @@ class Book < ApplicationRecord
         .limit(3)
   end
 
+  def self.sort_books_by(column, direction, number = Book.count)
+    Book.joins(:reviews)
+    .select('books.*, avg(reviews.rating) as average_rating, count(reviews) as reviews_count')
+    .group("id")
+    .order("#{column} #{direction}, title")
+    .limit(number)
+  end
+
 
 end
