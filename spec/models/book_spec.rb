@@ -45,7 +45,6 @@ RSpec.describe Book, type: :model do
         expect(Review.count).to eq(4)
 
         book_1.delete_reviews(book_1.reviews)
-        book_1.delete_book_authors(book_1.book_authors)
 
         expect(book_1.reviews.count).to eq(0)
         expect(Review.count).to eq(1)

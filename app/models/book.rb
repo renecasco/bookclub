@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-  has_many :book_authors
+  has_many :book_authors, dependent: :destroy
   has_many :authors, through: :book_authors
   has_many :reviews
 
@@ -48,9 +48,4 @@ class Book < ApplicationRecord
     end
   end
 
-  def delete_book_authors(book_authors)
-    book_authors.each do |book_author|
-      book_author.delete
-    end
-  end
 end
