@@ -51,8 +51,6 @@ RSpec.describe Review, type: :model do
 
       expect(Review.users_with_most_reviews[2].user).to eq('smitty_1')
       expect(Review.users_with_most_reviews[2].count).to eq(2)
-
-
     end
   end
 end
