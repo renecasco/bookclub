@@ -33,8 +33,8 @@ RSpec.describe 'When a user visits a book index page' do
       expect(page).to have_xpath("//img[contains(@src,'#{File.basename(book_3.cover_art)}')]")
       expect(page).to have_content(book_3.pages)
       expect(page).to have_content(book_3.publication_year)
-      expect(page).to have_content(book_3.authors[0].name)
-      expect(page).to have_content(book_3.authors[1].name)
+      expect(page).to have_link(book_3.authors[0].name)
+      expect(page).to have_link(book_3.authors[1].name)
       expect(page).to have_content("Average Rating: #{book_3.avg_rating}")
       expect(page).to have_content("Number of Reviews: #{book_3.reviews_count}")
     end

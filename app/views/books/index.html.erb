@@ -22,7 +22,7 @@
     <p><%= book.pages %></p>
     <p><%= book.publication_year %></p>
     <% book.authors.each do |author| %>
-      <p><%= author.name %></p>
+      <p><%= link_to author.name, author_path(author) %></p>
     <% end %>
     <p>Average Rating: <%=book.avg_rating%></p>
     <p>Number of Reviews: <%=book.reviews_count%></p>
