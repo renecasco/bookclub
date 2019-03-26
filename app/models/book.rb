@@ -42,5 +42,15 @@ class Book < ApplicationRecord
     .limit(number)
   end
 
+  def delete_reviews(reviews)
+    reviews.each do |review|
+      review.delete
+    end
+  end
 
+  def delete_book_authors(book_authors)
+    book_authors.each do |book_author|
+      book_author.delete
+    end
+  end
 end
