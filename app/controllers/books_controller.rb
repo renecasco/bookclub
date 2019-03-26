@@ -1,9 +1,15 @@
 class BooksController < ApplicationController
 
   def index
-    @books = Book.all
+    @stats_books = Book.all
+    if params[:column]
+      @books = Book.sort_books_by(params[:column], params[:direction])
+    else
+      @books = Book.all
+    end
     @authors = Author.all
     @reviews = Review.all
+
   end
 
   def show

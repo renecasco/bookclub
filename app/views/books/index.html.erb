@@ -1,8 +1,22 @@
 
 <%= link_to 'Add New Book', new_book_path %>
 
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Sort Books
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/books?column=average_rating&direction=DESC">average rating - descending</a><br/>
+    <a class="dropdown-item" href="/books?column=average_rating&direction=ASC">average rating - ascending</a><br/>
+    <a class="dropdown-item" href="/books?column=pages&direction=DESC">length - descending</a><br/>
+    <a class="dropdown-item" href="/books?column=pages&direction=ASC">length - ascending</a><br/>
+    <a class="dropdown-item" href="/books?column=reviews_count&direction=DESC">number of reviews - descending</a><br/>
+    <a class="dropdown-item" href="/books?column=reviews_count&direction=ASC">number of reviews - ascending</a>
+  </div>
+</div>
+
 <% @books.each do |book| %>
-  <section id="book-<%= book.id %>">
+  <section class="books" id="book-<%= book.id %>">
     <p><%= link_to book.title, book_path(book) %></p>
     <img src="<%= book.cover_art %>" alt="<%= book.title %> cover art">
     <p><%= book.pages %></p>
@@ -14,28 +28,23 @@
     <p>Number of Reviews: <%=book.reviews_count%></p>
   </section>
 <% end %>
-
 <section id="statistics">
-
   <section id="statistics-column1">
     <h4>Top Rated Books</h4>
-    <% @books.top_rated_books.each do |book| %>
+    <% @stats_books.top_rated_books.each do |book| %>
       <p><%= book.title %>: <%= book.avg_rating %></p>
     <% end %>
   </section>
-
   <section id="statistics-column2">
     <h4>Lowest Rated Books</h4>
-    <% @books.lowest_rated_books.each do |book| %>
+    <% @stats_books.lowest_rated_books.each do |book| %>
       <p><%= book.title %>: <%= book.avg_rating %></p>
     <% end %>
   </section>
-
   <section id="statistics-column3">
     <h4>Users with Most Reviews</h4>
     <% @reviews.users_with_most_reviews.each do |review| %>
       <p><%= review.user %>: <%= review.count %></p>
     <% end %>
   </section>
-
 </section>

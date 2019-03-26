@@ -129,14 +129,14 @@ RSpec.describe 'When a user visits a book index page' do
     click_on "Sort Books"
     click_on "average rating - descending"
 
-    elements = all('#Book1, #Book2, #Book3, #Book4, #Book5, #Book6, #Book7, #Book8');
-    expect(elements[0]['id']).to eql('Book1');
-    expect(elements[1]['id']).to eql('Book8');
-    expect(elements[2]['id']).to eql('Book6');
-    expect(elements[3]['id']).to eql('Book5');
-    expect(elements[4]['id']).to eql('Book7');
-    expect(elements[5]['id']).to eql('Book4');
-    expect(elements[6]['id']).to eql('Book3');
-    expect(elements[7]['id']).to eql('Book2');
+
+    expect(all('.books')[0]).to have_content("Pride And Prejudice")
+    expect(all('.books')[1]).to have_content("Fellowship Of The Rings")
+    expect(all('.books')[2]).to have_content("Lord Of The Rings")
+    expect(all('.books')[3]).to have_content("Emma")
+    expect(all('.books')[4]).to have_content("Shop Girl 1")
+    expect(all('.books')[5]).to have_content("Sense And Sensibility")
+    expect(all('.books')[6]).to have_content("Shop Girl")
+    expect(all('.books')[7]).to have_content("The Hobbit")
   end
 end
