@@ -88,9 +88,12 @@ RSpec.describe 'When a user visits a book index page' do
 
       within "#statistics-column3" do
         expect(page).to have_content("Users with Most Reviews")
-        expect(page).to have_content("renny: 4")
-        expect(page).to have_content("smitty: 3")
-        expect(page).to have_content("smitty_1: 2")
+        expect(page).to have_link("renny")
+        expect(page).to have_content("4")
+        expect(page).to have_link("smitty")
+        expect(page).to have_content("3")
+        expect(page).to have_link("smitty_1")
+        expect(page).to have_content("2")
       end
     end
   end

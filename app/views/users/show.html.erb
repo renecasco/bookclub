@@ -12,6 +12,6 @@
 <% end %>
 
 <section id="review-sort">
-  <%= link_to 'Ascending Order By Date', user_path('smitty', sort: 'asc') %>
-  <%= link_to 'Descending Order By Date', user_path('smitty', sort: 'desc') %>
+  <%= link_to 'Ascending Order By Date', user_path(@reviews_user.user, sort: 'asc') %>
+  <%= link_to 'Descending Order By Date', user_path(@reviews_user.user, sort: 'desc') %>
 </section>

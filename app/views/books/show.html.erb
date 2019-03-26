@@ -25,7 +25,7 @@
     Top Reviews
     <ul><% @book.sort_reviews_by_rating(:desc).each do |review|  %>
         <li>Rating: <%= review.rating %></li>
-        <li>User: <%= review.user %></li>
+        <li>User: <%= link_to review.user, user_path(review.user)%></li>
         <li><%= review.title %></li>
         <% end %>
     </ul>
@@ -34,7 +34,7 @@
     Worst Reviews
     <ul><% @book.sort_reviews_by_rating(:asc).each do |review| %>
       <li>Rating: <%= review.rating %></li>
-      <li>User: <%= review.user %></li>
+      <li>User: <%= link_to review.user, user_path(review.user) %></li>
       <li><%= review.title %></li>
       <% end %>
     </ul>

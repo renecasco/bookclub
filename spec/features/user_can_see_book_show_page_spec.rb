@@ -98,6 +98,7 @@ RSpec.describe 'When a user visits a book show page', type: :feature do
         expect(page).to have_content("Mr. Darcy!")
         expect(page).to have_content("My Favourite Book")
         expect(page).to have_content("boo hoo hoo")
+        expect(page).to have_link("smitty")
 
         expect(page).to_not have_content("Ghastly!")
       end
@@ -107,6 +108,7 @@ RSpec.describe 'When a user visits a book show page', type: :feature do
         expect(page).to have_content("Ghastly!")
         expect(page).to have_content("Gold Diggers!")
         expect(page).to have_content("boo hoo hoo")
+        expect(page).to have_link("renny_1")
 
         expect(page).to_not have_content("Mr. Darcy!")
 
