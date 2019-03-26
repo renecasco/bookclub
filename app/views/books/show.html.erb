@@ -1,5 +1,6 @@
 
 <h1><%= @book.title %></h1>
+<p class="link"><%= link_to 'Delete Book', book_path(@book), method: :delete %></p>
 <p><%= @book.pages %></p>
 <p><%= @book.publication_year %></p>
 <% @book.authors.each do |author| %>
