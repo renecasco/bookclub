@@ -1,10 +1,15 @@
+
 <% @reviews.each do |review| %>
   <p>Title: <%= review.title %></p>
   <p>Description: <%= review.description %></p>
   <p>Rating: <%= review.rating %></p>
   <p>Book Title: <%= review.book.title %></p>
-  <p>Date of Review: <%= review.created_at.to_date %></p>
+  <p>Date of Review: <%= review.created_at %></p>
   <img src="<%= review.book.cover_art %>"</img>
   <section id="delete-review-<%= review.id %>">
     <%= button_to 'Delete Review', review_path(review), data: {:confirm => 'Are you sure?'}, :method => :delete %></section>
 <% end %>
+
+<section id="review-sort">
+  <%= link_to 'Sort Reviews', user_path('smitty'), {sort: 'asc'}  %>
+</section>
