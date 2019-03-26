@@ -61,7 +61,7 @@ RSpec.describe Book, type: :model do
       expect(Book.lowest_rated_books).to eq([book_2, book_3, book_4])
     end
 
-    it "should sort for all books - by different criteria" do
+    it "should sort for all books by average reviews, number of reviews and number of pages" do
       author_1 = Author.create(name: "Jane Austen")
       author_2 = Author.create(name: "J.R.R. Tolkein")
       author_3 = Author.create(name: "Steve Martin")
@@ -94,8 +94,8 @@ RSpec.describe Book, type: :model do
       expect(Book.sort_books_by("average_rating", "DESC")).to eq([book_1,book_8,book_6,book_5,book_7,book_4,book_3,book_2])
       # expect(Book.sort_books_by("pages", "ASC")).to eq([book_1,book_8,book_6,book_5,book_7,book_4,book_3,book_2])
       # expect(Book.sort_books_by("pages", "DESC")).to eq([book_1,book_8,book_6,book_5,book_7,book_4,book_3,book_2])
-      # expect(Book.sort_books_by("reviews_count", "ASC")).to eq([book_1,book_8,book_6,book_5,book_7,book_4,book_3,book_2])
-      # expect(Book.sort_books_by("reviews_count", "DESC")).to eq([book_1,book_8,book_6,book_5,book_7,book_4,book_3,book_2])
+      expect(Book.sort_books_by("reviews_count", "ASC")).to eq([book_5,book_6,book_4,book_2,book_8,book_7,book_3,book_1])
+      expect(Book.sort_books_by("reviews_count", "DESC")).to eq([book_1,book_8,book_7,book_3,book_5,book_6,book_4,book_2])
     end
   end
 end
