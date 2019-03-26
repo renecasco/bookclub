@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def show
-    binding.pry
     @reviews = Review.where(user: params[:id])
+    .order(:created_at)
+    if params[:sort] == 'desc'
+      @reviews = Review.where(user: params[:id])
+      .order(created_at: :desc)
+    end
   end
 end

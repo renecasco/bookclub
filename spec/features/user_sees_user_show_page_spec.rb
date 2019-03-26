@@ -77,7 +77,11 @@ RSpec.describe "When a user clicks on a user's name for any book review", type: 
 
     expect(current_path).to eq(user_path('smitty'))
 
-    click_on "Sort Reviews"
     click_on "Ascending Order By Date"
+    expect(all('.reviews')[0]).to have_content("Mr. Darcy!")
+
+    click_on "Descending Order By Date"
+    expect(all('.reviews')[2]).to have_content("Mr. Darcy!")
+    expect(all('.reviews')[0]).to have_content("novel was too short?")
   end
 end
