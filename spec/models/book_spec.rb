@@ -66,14 +66,14 @@ RSpec.describe Book, type: :model do
       author_2 = Author.create(name: "J.R.R. Tolkein")
       author_3 = Author.create(name: "Steve Martin")
 
-      book_1 = Book.create(title: "Pride and Prejudice", pages: 278, publication_year: 1797, cover_art: "https://images-na.ssl-images-amazon.com/images/I/51wScUt0gZL._SX329_BO1,204,203,200_.jpg", authors: [author_1])
-      book_2 = Book.create(title: "The Hobbit", pages: 478, publication_year: 1932, cover_art: "https://images-na.ssl-images-amazon.com/images/I/51wScUt0gZL._SX329_BO1,204,203,200_.jpg", authors: [author_2])
-      book_3 = Book.create(title: "Shop Girl 1", pages: 150, publication_year: 2010, cover_art: "https://images-na.ssl-images-amazon.com/images/I/41PG42Z25GL._SX323_BO1,204,203,200_.jpg", authors: [author_3, author_1])
-      book_4 = Book.create(title: "Sense and Sensibility", pages: 190, publication_year: 1811, cover_art: "https://images-na.ssl-images-amazon.com/images/I/41PG42Z25GL._SX323_BO1,204,203,200_.jpg", authors: [author_1])
-      book_5 = Book.create(title: "Emma", pages: 100, publication_year: 1860, cover_art: "https://images-na.ssl-images-amazon.com/images/I/41PG42Z25GL._SX323_BO1,204,203,200_.jpg", authors: [author_1])
-      book_6 = Book.create(title: "Lord of The Rings", pages: 700, publication_year: 1954, cover_art: "https://images-na.ssl-images-amazon.com/images/I/41PG42Z25GL._SX323_BO1,204,203,200_.jpg", authors: [author_2])
+      book_1 = Book.create(title: "Pride and Prejudice", pages: 450, publication_year: 1797, cover_art: "https://images-na.ssl-images-amazon.com/images/I/51wScUt0gZL._SX329_BO1,204,203,200_.jpg", authors: [author_1])
+      book_2 = Book.create(title: "The Hobbit", pages: 400, publication_year: 1932, cover_art: "https://images-na.ssl-images-amazon.com/images/I/51wScUt0gZL._SX329_BO1,204,203,200_.jpg", authors: [author_2])
+      book_3 = Book.create(title: "Shop Girl 1", pages: 350, publication_year: 2010, cover_art: "https://images-na.ssl-images-amazon.com/images/I/41PG42Z25GL._SX323_BO1,204,203,200_.jpg", authors: [author_3, author_1])
+      book_4 = Book.create(title: "Sense and Sensibility", pages: 300, publication_year: 1811, cover_art: "https://images-na.ssl-images-amazon.com/images/I/41PG42Z25GL._SX323_BO1,204,203,200_.jpg", authors: [author_1])
+      book_5 = Book.create(title: "Emma", pages: 250, publication_year: 1860, cover_art: "https://images-na.ssl-images-amazon.com/images/I/41PG42Z25GL._SX323_BO1,204,203,200_.jpg", authors: [author_1])
+      book_6 = Book.create(title: "Lord of The Rings", pages: 200, publication_year: 1954, cover_art: "https://images-na.ssl-images-amazon.com/images/I/41PG42Z25GL._SX323_BO1,204,203,200_.jpg", authors: [author_2])
       book_7 = Book.create(title: "Shop Girl", pages: 150, publication_year: 2010, cover_art: "https://images-na.ssl-images-amazon.com/images/I/41PG42Z25GL._SX323_BO1,204,203,200_.jpg", authors: [author_3, author_1])
-      book_8 = Book.create(title: "Fellowship of the Rings", pages: 658, publication_year: 1954, cover_art: "https://images-na.ssl-images-amazon.com/images/I/41PG42Z25GL._SX323_BO1,204,203,200_.jpg", authors: [author_3, author_1])
+      book_8 = Book.create(title: "Fellowship of the Rings", pages: 100, publication_year: 1954, cover_art: "https://images-na.ssl-images-amazon.com/images/I/41PG42Z25GL._SX323_BO1,204,203,200_.jpg", authors: [author_3, author_1])
 
 
       review_1 = book_1.reviews.create(user: "smitty", title: "Mr. Darcy!", rating: 5, description: "Did I mention, Mr. Darcy?!")
@@ -92,8 +92,8 @@ RSpec.describe Book, type: :model do
 
       expect(Book.sort_books_by("average_rating", "ASC")).to eq([book_2,book_3,book_4,book_7,book_5,book_6,book_8,book_1])
       expect(Book.sort_books_by("average_rating", "DESC")).to eq([book_1,book_8,book_6,book_5,book_7,book_4,book_3,book_2])
-      # expect(Book.sort_books_by("pages", "ASC")).to eq([book_1,book_8,book_6,book_5,book_7,book_4,book_3,book_2])
-      # expect(Book.sort_books_by("pages", "DESC")).to eq([book_1,book_8,book_6,book_5,book_7,book_4,book_3,book_2])
+      expect(Book.sort_books_by("pages", "ASC")).to eq([book_8,book_7,book_6,book_5,book_4,book_3,book_2,book_1])
+      expect(Book.sort_books_by("pages", "DESC")).to eq([book_1,book_2,book_3,book_4,book_5,book_6,book_7,book_8])
       expect(Book.sort_books_by("reviews_count", "ASC")).to eq([book_5,book_6,book_4,book_2,book_8,book_7,book_3,book_1])
       expect(Book.sort_books_by("reviews_count", "DESC")).to eq([book_1,book_8,book_7,book_3,book_5,book_6,book_4,book_2])
     end
