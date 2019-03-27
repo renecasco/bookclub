@@ -1,42 +1,43 @@
-
-<h1><%= @book.title %></h1>
-<p class="link"><%= link_to 'Delete Book', book_path(@book), method: :delete %></p>
-<p><%= @book.pages %></p>
-<p><%= @book.publication_year %></p>
-<% @book.authors.each do |author| %>
-  <p><%= link_to author.name, author_path(author) %></p>
-<% end %>
-<img src="<%= @book.cover_art %>" alt="<%= @book.title %> cover art">
-
-<% @book.reviews.each do |review| %>
-<section id="review-<%= review.id%>">
-  <p id="user-link-<%= review.id%>">User Name: <%= link_to review.user, user_path(review.user) %></p>
-  <p>Rating: <%= review.rating %></p>
-  <p>Title: <%= review.title %></p>
-  <p>Review: <%= review.description %></p>
-<% end %>
-</section>
-
-<%= link_to 'Add New Review', new_book_review_path(@book) %>
-
-<section class="reviews-statistics">
-  <p id="average-rating">Average Rating: <%= @reviews_avg_rating %></p>
-  <div id="top-three-reviews">
-    Top Reviews
-    <ul><% @top_three_reviews.each do |review|  %>
-        <li>Rating: <%= review.rating %></li>
-        <li>User: <%= link_to review.user, user_path(review.user)%></li>
-        <li><%= review.title %></li>
-        <% end %>
-    </ul>
-  </div>
-  <div id="bottom-three-reviews">
-    Worst Reviews
-    <ul><% @bottom_three_reviews.each do |review| %>
-      <li>Rating: <%= review.rating %></li>
-      <li>User: <%= link_to review.user, user_path(review.user) %></li>
-      <li><%= review.title %></li>
+<header>
+  <p class='link'> <%= link_to 'Add New Review', new_book_review_path(@book) %></p>
+</header>
+<section class="books-container">
+  <section class ='books'>
+    <h3 class="bg-dark text-white"><%= @book.title %></h3>
+      <h4 class="link"><%= link_to 'Delete Book', book_path(@book), method: :delete %></h4>
+    <img src="<%= @book.cover_art %>" alt="<%= @book.title %> cover art">
+    <p>Pages: <%= @book.pages %></p>
+    <p>Published: <%= @book.publication_year %></p>
+    <p>Author(s):</p>
+    <% @book.authors.each do |author| %>
+      <p><%= link_to author.name, author_path(author) %></p>
+    <% end %>
+      <p id="average-rating">Average Rating: <%= @reviews_avg_rating %></p>
+  </section>
+    <section class ='books'>
+    <h3 class="bg-dark text-white">Reviews</h3>
+      <% @book.reviews.each do |review| %>
+      <section id="review-<%= review.id%>">
+        <h5 class="text-primary">Title: <%= review.title %></h5>
+        <h4>Rating: <%= review.rating %> </h4>
+        <p id="user-link-<%= review.id%>">Reviewer: <%= link_to review.user, user_path(review.user) %></p>
+        <p>Review:<br> <%= review.description %></p>
       <% end %>
-    </ul>
+    </section>
+  </section>
+
+</section>
+<section id = "statistics" class="reviews-statistics">
+  <div id="top-three-reviews" class="stats-items">
+    <h4>Top Reviews</h4>
+    <% @top_three_reviews.each do |review|  %>
+    <p>Rating: <%= review.rating %>, <%= review.title %>, by: <%= link_to review.user, user_path(review.user) %> </p>
+    <% end %>
+  </div>
+  <div id="bottom-three-reviews" class="stats-items"  >
+    <h4>Worst Reviews</h4>
+    <% @bottom_three_reviews.each do |review| %>
+        <p>Rating: <%= review.rating %>, <%= review.title %>, by: <%= link_to review.user, user_path(review.user) %></p>
+    <% end %>
   </div>
 </section>

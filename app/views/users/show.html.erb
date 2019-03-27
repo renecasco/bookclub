@@ -1,17 +1,18 @@
-<% @reviews.each do |review| %>
-  <div class="reviews">
-    <p>Title: <%= review.title %></p>
-    <p>Description: <%= review.description %></p>
-    <p>Rating: <%= review.rating %></p>
-    <p>Book Title: <%= review.book.title %></p>
-    <p>Date of Review: <%= review.created_at %></p>
-    <img src="<%= review.book.cover_art %>"</img>
-    <section id="delete-review-<%= review.id %>">
-      <%= button_to 'Delete Review', review_path(review), data: {:confirm => 'Are you sure?'}, :method => :delete %></section>
-  </div>
-<% end %>
-
+<h1>Reviews by: <%= @reviews_user.user %> </h1>
 <section id="review-sort">
   <%= link_to 'Ascending Order By Date', user_path(@reviews_user.user, sort: 'asc') %>
   <%= link_to 'Descending Order By Date', user_path(@reviews_user.user, sort: 'desc') %>
+</section>
+<section class = "books-container">
+  <% @reviews.each do |review| %>
+    <div class="reviews">
+      <h5 class="bg-dark text-white">Title: <%= review.title %> <br> Rating: <%= review.rating %></h5>
+      <p><%= review.description %></p>
+      <p>Book Title: <%= review.book.title %></p>
+      <p>Date of Review: <%= review.created_at %></p>
+      <img class="thumbnail" src="<%= review.book.cover_art %>"</img>
+      <section id="delete-review-<%= review.id %>">
+        <%= button_to 'Delete Review', review_path(review), data: {:confirm => 'Are you sure?'}, :method => :delete %></section>
+    </div>
+  <% end %>
 </section>

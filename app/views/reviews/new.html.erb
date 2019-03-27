@@ -1,15 +1,18 @@
-<%= form_for [@book, @review] do |f| %>
-  <%= f.label :user%>
-  <%= f.text_field :user, required: true %>
+<h1>Add a New Review</h1>
+<section class = "form">
+  <%= form_for [@book, @review] do |f| %>
+    <p><%= f.label :user%></p>
+    <p><%= f.text_field :user, required: true %></p>
 
-  <%= f.label :rating %>
-  <%= f.number_field :rating, required: true %>
+    <p><%= f.label :rating %></p>
+    <p><%= f.number_field :rating, required: true %></p>
 
-  <%= f.label :title %>
-  <%= f.text_field :title, required: true %>
+    <p><%= f.label :title %></p>
+    <p><%= f.text_field :title, required: true %></p>
 
-  <%= f.label :description %>
-  <%= f.text_field :description, required: true %>
+    <p><%= f.label :description %></p>
+    <p><%= f.text_field :description, required: true %></p>
 
-  <%= f.submit %>
-<% end %>
+    <p><%= f.submit %></p>
+  <% end %>
+</section>

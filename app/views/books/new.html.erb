@@ -1,20 +1,22 @@
 <h1>Add a New Book</h1>
+<section class = "form">
+  <%= form_for @book do |f| %>
+  <p><%= f.label :title %></p>
+  <p><%= f.text_field :title, required: true %></p>
 
-<%= form_for @book do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title, required: true %>
+  <p><%= f.label :publication_year %></p>
+  <p><%= f.number_field :publication_year, required: true %></p>
 
-  <%= f.label :publication_year %>
-  <%= f.number_field :publication_year, required: true %>
+  <p><%= f.label :pages%></p>
+  <p><%= f.number_field :pages, required: true %></p>
 
-  <%= f.label :pages%>
-  <%= f.number_field :pages, required: true %>
+  <p><%= f.label :cover_art %></p>
+  <p><%= f.text_field :cover_art %></p>
 
-  <%= f.label :cover_art %>
-  <%= f.text_field :cover_art %>
+  <p><%= f.label :authors %></p>
+  <p><%= f.text_field :authors, required: true %></p>
 
-  <%= f.label :authors %>
-  <%= f.text_field :authors, required: true %>
+  <p><%= f.submit %></p>
+   <% end %>
 
-  <%= f.submit %>
- <% end %>
+</section>

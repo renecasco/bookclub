@@ -1,0 +1,83 @@
+
+
+h1 {
+  display: flex;
+  justify-content: left;
+  font-weight: bolder;
+  margin: 20px;
+  padding-top: 40px;
+
+}
+
+h3 {
+  padding: 10px;
+
+}
+.link {
+  margin: 14px;
+}
+
+.index-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items:  baseline;
+}
+
+#statistics {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: 1px solid gray;
+  margin: 10px;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.stats-item {
+  margin: 5px;
+  text-align: center;
+}
+
+.books-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+.books {
+  flex: 30%;
+  border: 1px solid gray;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+.reviews {
+  flex: 30%;
+  border: 1px solid gray;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+.form{
+  flex: 30%;
+  border: 1px solid gray;
+  padding: 10px;
+  margin: 10px;
+  text-align: left;
+}
+
+.text-primary {
+  text-align: center;
+}
+
+img {
+  width: 250px;
+  padding: 15px;
+}
+
+.thumbnail {
+  width: 160px;
+  padding: 15px;
+}
