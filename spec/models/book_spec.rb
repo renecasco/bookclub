@@ -37,8 +37,8 @@ RSpec.describe Book, type: :model do
       review_4 = book_1.reviews.create(user: "smitty_1", title: "My Favourite Book!", rating: 4, description: "Read it many times and it's great every time.")
       review_5 = book_1.reviews.create(user: "renny_1", title: "Ghastly!", rating: 1, description: "Counldn't get past the first chapter.")
 
-      expect(book_1.sort_reviews_by_rating(:desc)).to eq([review_1, review_4, review_2])
-      expect(book_1.sort_reviews_by_rating(:asc)).to eq([review_5, review_3, review_2])
+      expect(book_1.sort_reviews_by_rating(:desc, 3)).to eq([review_1, review_4, review_2])
+      expect(book_1.sort_reviews_by_rating(:asc, 3)).to eq([review_5, review_3, review_2])
     end
   end
 
