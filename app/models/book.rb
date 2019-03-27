@@ -42,8 +42,7 @@ class Book < ApplicationRecord
     .limit(number)
   end
 
-  def sort_reviews_by_rating(direction)
-    reviews.order(rating: direction).limit(3)
+  def sort_reviews_by_rating(direction, limits)
+    reviews.order(rating: direction).limit(limits)
   end
-
 end

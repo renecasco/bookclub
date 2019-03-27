@@ -1,6 +1,6 @@
 <h1><%= @author.name %></h1>
 
-<% @author.books.each do |book| %>
+<% @author_books.each do |book| %>
   <section class="books" id="book-<%= book.id %>">
     <p><%= link_to book.title, book_path(book) %></p>
     <img src="<%= book.cover_art %>" alt="<%= book.title %> cover art">
@@ -11,5 +11,9 @@
         <p><%= author.name %></p>
       <% end %>
     <% end %>
+    <p>Top Review: </p>
+    <%= book.sort_reviews_by_rating(:desc, 1)[0].user %>
+    <%= book.sort_reviews_by_rating(:desc, 1)[0].title %>
+    <%= book.sort_reviews_by_rating(:desc, 1)[0].rating %>
   </section>
 <% end %>

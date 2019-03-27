@@ -10,7 +10,7 @@
 
 <% @book.reviews.each do |review| %>
 <section id="review-<%= review.id%>">
-  <p>User Name: <%= link_to review.user, user_path(review.user) %></p>
+  <p id="user-link-<%= review.id%>">User Name: <%= link_to review.user, user_path(review.user) %></p>
   <p>Rating: <%= review.rating %></p>
   <p>Title: <%= review.title %></p>
   <p>Review: <%= review.description %></p>
@@ -23,7 +23,7 @@
   <p id="average-rating">Average Rating: <%= @reviews_avg_rating %></p>
   <div id="top-three-reviews">
     Top Reviews
-    <ul><% @book.sort_reviews_by_rating(:desc).each do |review|  %>
+    <ul><% @top_three_reviews.each do |review|  %>
         <li>Rating: <%= review.rating %></li>
         <li>User: <%= link_to review.user, user_path(review.user)%></li>
         <li><%= review.title %></li>
@@ -32,7 +32,7 @@
   </div>
   <div id="bottom-three-reviews">
     Worst Reviews
-    <ul><% @book.sort_reviews_by_rating(:asc).each do |review| %>
+    <ul><% @bottom_three_reviews.each do |review| %>
       <li>Rating: <%= review.rating %></li>
       <li>User: <%= link_to review.user, user_path(review.user) %></li>
       <li><%= review.title %></li>
