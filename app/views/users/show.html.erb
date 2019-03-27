@@ -1,13 +1,13 @@
 <h1>Reviews by: <%= @reviews_user.user %> </h1>
-<section id="review-sort">
-  <%= link_to 'Ascending Order By Date', user_path(@reviews_user.user, sort: 'asc') %>
-  <%= link_to 'Descending Order By Date', user_path(@reviews_user.user, sort: 'desc') %>
+<section class = "index-header" id="review-sort">
+  <%= link_to 'Sort by Date in Ascending Order', user_path(@reviews_user.user, sort: 'asc') %>
+  <%= link_to 'Sort by Date in Descending Order', user_path(@reviews_user.user, sort: 'desc') %>
 </section>
 <section class = "books-container">
   <% @reviews.each do |review| %>
     <div class="reviews">
       <h5 class="bg-dark text-white">Title: <%= review.title %> <br> Rating: <%= review.rating %></h5>
-      <p><%= review.description %></p>
+      <p> <%= review.description %></p>
       <p>Book Title: <%= review.book.title %></p>
       <p>Date of Review: <%= review.created_at %></p>
       <img class="thumbnail" src="<%= review.book.cover_art %>"</img>
