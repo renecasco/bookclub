@@ -88,11 +88,11 @@ RSpec.describe 'When a user visits a book show page', type: :feature do
 
     visit book_path(book_1)
 
-    within ".reviews-statistics" do
-      within "#average-rating" do
-        expect(page).to have_content("Average Rating: 3.0")
-      end
+    within "#average-rating" do
+      expect(page).to have_content("Average Rating: 3.0")
+    end
 
+    within ".reviews-statistics" do
       within "#top-three-reviews" do
         expect(page).to have_content("Top Reviews")
         expect(page).to have_content("Mr. Darcy!")

@@ -18,7 +18,7 @@ RSpec.describe "When a user clicks on a user's name for any book review", type: 
 
     visit book_path(book_1)
 
-    within "#user-link-#{review_1.id}" do 
+    within "#user-link-#{review_1.id}" do
       click_on 'smitty'
     end
 
@@ -79,10 +79,10 @@ RSpec.describe "When a user clicks on a user's name for any book review", type: 
 
     expect(current_path).to eq(user_path('smitty'))
 
-    click_on "Ascending Order By Date"
+    click_on "Sort by Date in Ascending Order"
     expect(all('.reviews')[0]).to have_content("Mr. Darcy!")
 
-    click_on "Descending Order By Date"
+    click_on "Sort by Date in Descending Order"
     expect(all('.reviews')[2]).to have_content("Mr. Darcy!")
     expect(all('.reviews')[0]).to have_content("novel was too short?")
   end
